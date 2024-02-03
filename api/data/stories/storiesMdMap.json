@@ -1,18 +1,18 @@
 {
     "1": {
         "title": "story1",
-        "filename": "story1.md"
+        "fileName": "story1.md"
     },
     "2": {
         "title": "story2",
-        "filename": "story2.md"
+        "fileName": "story2.md"
     },
     "3": {
         "title": "story3",
-        "filename": "story3.md"
+        "fileName": "story3.md"
     },
     "4": {
         "title": "story4",
-        "filename": "story4.md"
+        "fileName": "story4.md"
     }
 }
