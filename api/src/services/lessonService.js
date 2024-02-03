@@ -23,4 +23,27 @@ const getAllLessons = () => {
     });
 };
 
+const getLessonById = (id) => {
+    return new Promise((resolve, reject)=>{
+        const filePath = path.join(__dirname, '../../data/lessons/lessonsMdMap.json');
+        try{
+            const fileContent = fs.readFileSync(filePath, 'utf8');
+            const lesson = JSON.parse(fileContent)[id];
+
+            if(!lesson){
+                throw ({
+                    status: 400,
+                    msg: "Lesson not found"
+                });
+            }
+
+            return resolve(lesson);
+
+        }catch(e){
+            return reject(e);
+        }
+    });
+};
+
 exports.getAllLessons = getAllLessons;
+exports.getLessonById = getLessonById;

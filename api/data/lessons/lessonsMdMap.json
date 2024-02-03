@@ -1,0 +1,23 @@
+{
+    
+    "1": {
+        "title": "Lesson 1",
+        "storyId": "1",
+        "guideId": "1"
+    },
+    "2": {
+        "title": "Lesson 2",
+        "storyId": "2",
+        "guideId": "2"
+    },
+    "3": {
+        "title": "Lesson 3",
+        "storyId": "3",
+        "guideId": "3"
+    },
+    "4": {
+        "title": "Lesson 4",
+        "storyId": "4",
+        "guideId": "4"
+    }
+}
