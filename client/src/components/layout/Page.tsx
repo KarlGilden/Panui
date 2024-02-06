@@ -6,7 +6,7 @@ interface IProps{
 
 const Page = ({children}:IProps) => {
   return (
-    <div className='min-h-screen pt-navbar'>
+    <div className='min-h-screen pt-navbar p-5'>
         {children}
     </div>
   )

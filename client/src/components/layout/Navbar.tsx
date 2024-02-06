@@ -1,6 +1,6 @@
 const Navbar = () => {
   return (
-    <nav className='absolute w-full px-28 flex items-center h-navbar'>
+    <nav className='absolute w-full px-5 sm:px-10 md:px-28 flex items-center h-navbar'>
         <div>
             <p className='text-2xl font-bold'>Panui</p>
         </div>
