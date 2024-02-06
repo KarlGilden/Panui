@@ -3,6 +3,7 @@ import {useParams} from 'react-router-dom';
 import { getGuide, getLesson, getStory } from '../../util/utilLesson';
 import Guide from './Guide';
 import Reader from './Reader';
+import Page from '../../components/layout/Page';
 
 const Learn = () => {
 
@@ -36,16 +37,19 @@ const Learn = () => {
     }
 
   return (
-    <div className='flex flex-col items-center'>
-      <div className='max-w-[600px] w-full'>
-        <button className={`${tab === "guide" && "border-b-white border-b-2"} p-2`} onClick={()=>changeTab("guide")}>Grammar guide</button>
-        <button className={`${tab === "story" && "border-b-white border-b-2"} p-2`} onClick={()=>changeTab("story")}>Story</button>
+    <Page>
+      <div className='flex flex-col items-center'>
+        <div className='max-w-[600px] w-full'>
+          <button className={`${tab === "guide" && "border-b-white border-b-2"} p-2`} onClick={()=>changeTab("guide")}>Grammar guide</button>
+          <button className={`${tab === "story" && "border-b-white border-b-2"} p-2`} onClick={()=>changeTab("story")}>Story</button>
+        </div>
+        <div className='max-w-[600px] w-full min-h-[200px]'>
+          {tab === "guide" && <Guide guide={guide} changeTab={changeTab}/>}
+          {tab === "story" && <Reader story={story}/>}
+        </div>
       </div>
-      <div className='max-w-[600px] w-full min-h-[200px]'>
-        {tab === "guide" && <Guide guide={guide} changeTab={changeTab}/>}
-        {tab === "story" && <Reader story={story}/>}
-      </div>
-    </div>
+    </Page>
+
   )
 }
 

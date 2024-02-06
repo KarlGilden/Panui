@@ -1,8 +1,12 @@
+import Page from "../components/layout/Page"
+
 const Home = () => {  
   return (
-    <div>
-      <h1>Welcome</h1>
-    </div>
+    <Page>
+      <div className="flex items-center justify-center">
+        <h1>Welcome</h1>
+      </div>
+    </Page>
   )
 }
 
