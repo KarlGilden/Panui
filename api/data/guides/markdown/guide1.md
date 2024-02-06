@@ -1,11 +1,4 @@
-### Grammar 1
+### He & te
 
-# A first-level heading
-
-
-## A second-level heading
-
-
-
-### A third-level heading
+This is a sample grammar examining the usage and differences between **He** and **te**.
 
