@@ -17,6 +17,12 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.selected-text{
+  background-color: goldenrod;
+  border-radius: 2px;
+  height: 100%;
+}
+
 h1{
   display: block;
   font-size: 2em;

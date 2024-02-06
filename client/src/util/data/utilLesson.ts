@@ -30,13 +30,13 @@ export const getGuide = (id:string) => {
 };
 
 export const getStory = (id:string) => {
-    return new Promise<string>(async (resolve, reject)=>{
+    return new Promise<string[][]>(async (resolve, reject)=>{
         await fetch(`http://localhost:3000/story/${id}`)
         .then(res=>res.json())
         .then(story=>{
             console.log(story)
             fetch(`http://localhost:3000/story/md/${story.fileName}`)
-            .then(res=>res.text())
+            .then(res=>res.json())
             .then(storyMd=>{
                 resolve(storyMd);
             })
