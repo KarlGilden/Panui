@@ -51,12 +51,19 @@ const _highlightText = (startNode:HTMLElement, endNode: HTMLElement, containerNo
    
     const maxPhraseLength = 10;
 
+    console.log("start: ", startNode.id)
+    console.log("end: ", endNode.id)
+
     // get ids as integers "w1" -> 1
     let startIndex = parseInt(startNode.id.substring(1));
     let endIndex = parseInt(endNode.id.substring(1));
 
     if(endIndex > (startIndex + maxPhraseLength)){
         endIndex = startIndex + maxPhraseLength;
+    }
+
+    if(endIndex < startIndex){
+        endIndex = startIndex;
     }
 
     // insert
