@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import {useParams} from 'react-router-dom';
-import { getGuide, getLesson, getStory } from '../../util/data/utilLesson';
+import { getGuide, getLesson, getStory } from '../../util/utilLesson';
 import Guide from './Guide';
 import Reader from './Reader';
 import Page from '../../components/layout/Page';
