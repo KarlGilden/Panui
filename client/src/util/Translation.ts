@@ -1,6 +1,6 @@
 import { DictionaryEntry, GoogleTranslateResult } from "../types/TranslationTypes";
 
-const dictionary:DictionaryEntry[] = [{original:"", translations:[]}];
+const apiUrl = "http://localhost:3000";
 
 function getGoogleTranslation(word:string){
 
@@ -34,13 +34,15 @@ function getGoogleTranslation(word:string){
 
 function getDictionaryTranslation(phrase:string){
 
-  return new Promise<DictionaryEntry>((resolve, reject) => {
-    for(let i=0;i<dictionary.length;i++){
-      if(dictionary[i].original === phrase){
-        return resolve(dictionary[i]);
-      }
-    }
-    return reject();
+  return new Promise<DictionaryEntry>(async (resolve, reject) => {
+    await fetch(`${apiUrl}/dictionary/${phrase}`, {})
+    .then(res=>res.json())
+    .then(data=>{
+      return resolve(data);
+    })
+    .catch(()=>{
+      return reject();
+    })
   });
 }
 
