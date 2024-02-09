@@ -19,17 +19,26 @@ const Reader = ({story}:IProps) => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [showDictionary, setShowDictionary] = useState(false);
 
-  const handleSelect = (e:React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+  const handleSelect = (e:React.MouseEvent<HTMLElement>) => {
       removeHighlight();
       
       const phrase = selectAndGetText();
+      const popupPosition = calcPopupPosition(e);
 
-      setMousePosition({x: e.clientX, y:e.clientY})
-      console.log({x: e.clientX, y:e.clientY})
+      setMousePosition(popupPosition);
+
       if(phrase){
           define(phrase.replace("\n", ""))
       }
   };
+
+
+  const calcPopupPosition = (e:React.MouseEvent<HTMLElement>) => {
+    const node = e.target as HTMLElement;
+    const rect = node.getBoundingClientRect();
+    return {x: rect.x + (node.clientWidth / 2), y: rect.y + 10};
+  };
+
 
   const define = async (phrase:string) => {
     setTranslations([""]);
@@ -43,6 +52,7 @@ const Reader = ({story}:IProps) => {
     });
   };
   
+
   const clickPhrase = (e:React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     const wrapper = document.getElementById("selected-text");
     if(!e.target) return;
@@ -54,6 +64,7 @@ const Reader = ({story}:IProps) => {
     }
   }
 
+  
   return (
     <>
         <div onClick={(e)=>clickPhrase(e)} className='max-w-[600px] reader-wrapper select-text'>
