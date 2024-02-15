@@ -34,9 +34,26 @@ const Reader = ({story}:IProps) => {
 
 
   const calcPopupPosition = (e:React.MouseEvent<HTMLElement>) => {
+    const width = 250;
     const node = e.target as HTMLElement;
-    const rect = node.getBoundingClientRect();
-    return {x: rect.x + (node.clientWidth / 2), y: rect.y + 10};
+    const targetNode = node.getBoundingClientRect();
+    const pageBorder = document.body.getBoundingClientRect();
+
+    let x = 0;
+    let y = 0;
+
+    x = targetNode.x + (node.clientWidth / 2);
+    x = x - (width / 2);
+    y = targetNode.y + 10 + window.scrollY
+
+    if(x < 0){
+        x = 10
+    }
+    if(x + width > pageBorder.width){
+        x = pageBorder.width - (width + 10)
+    }
+    const position = {x: x, y: y};
+    return position;
   };
 
 
@@ -64,7 +81,7 @@ const Reader = ({story}:IProps) => {
     }
   }
 
-  
+
   return (
     <>
         <div onClick={(e)=>clickPhrase(e)} className='max-w-[600px] reader-wrapper select-text'>
